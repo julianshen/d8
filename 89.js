@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var d8 = require('./88.js');
 var program = require('commander');
 var rp = require('range-selection-parser');
