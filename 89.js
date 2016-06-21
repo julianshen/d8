@@ -32,7 +32,7 @@ program
         }
 
         var friendly = options.friendly;
-
+        
         d8.getEpisodeList(id).then(function(result){
             var episodes = null;
             
@@ -76,7 +76,7 @@ program
                 return new Promise(function(resolve, reject) {
                     d8.findVideoUrl(elem.id).then(function(result) {
                         var name = friendly ? slug(elem.name):elem.name;
-                        var file = dir + "/" + slug(elem.name) + ".mp4";
+                        var file = dir + "/" + name + ".mp4";
                        
                         var bar = null;
 
