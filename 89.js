@@ -25,6 +25,7 @@ program
     .command('get [id]').alias('g').description('Download all video files from [id]')
     .option('-i, --index [index]', 'Only get specific indexes (ex: 1,3,4,5,7,9-12)')
     .option('-f --friendly', 'Use friendly file name. Friend file name is file name with only ascii')
+    .option('-d --dir [dir]', 'Use this dir name instead of title name')
     .action(function(id, options){
         var indexes = null
         if(options.index != null) {
@@ -61,7 +62,7 @@ program
 
             let promises = [];
 
-            var dir = result.title;
+            var dir = options.dir ? options.dir:result.title;
             promises.push(new Promise(function(resolve, reject) {
                 fs.access(dir, fs.R_OK | fs.W_OK, (err) => {
                     if(err) {
