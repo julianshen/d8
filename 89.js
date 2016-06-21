@@ -24,11 +24,14 @@ program
 program
     .command('get [id]').alias('g').description('Download all video files from [id]')
     .option('-i, --index [index]', 'Only get specific indexes (ex: 1,3,4,5,7,9-12)')
+    .option('-f --friendly', 'Use friendly file name. Friend file name is file name with only ascii')
     .action(function(id, options){
         var indexes = null
         if(options.index != null) {
             indexes = rp.parseSelectionString(options.index);
         }
+
+        var friendly = options.friendly;
 
         d8.getEpisodeList(id).then(function(result){
             var episodes = null;
@@ -72,6 +75,7 @@ program
             promises.concat(episodes.map(function(elem) {
                 return new Promise(function(resolve, reject) {
                     d8.findVideoUrl(elem.id).then(function(result) {
+                        var name = friendly ? slug(elem.name):elem.name;
                         var file = dir + "/" + slug(elem.name) + ".mp4";
                        
                         var bar = null;
