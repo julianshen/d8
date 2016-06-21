@@ -1,0 +1,19 @@
+{
+  "name": "d8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "89.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "request": "^2.69.0",
+    "commander": "*",
+    "range-selection-parser": "*",
+    "limax": "*",
+    "progress": "*"
+  }
+}
