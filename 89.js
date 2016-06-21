@@ -103,7 +103,6 @@ program
                                 });
                             })
                             .on('error', function(err) {
-                                console.log('111');
                                 reject(err);
                             })
                             .pipe(fs.createWriteStream(file));                       
