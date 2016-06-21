@@ -67,7 +67,7 @@ program
                 fs.access(dir, fs.R_OK | fs.W_OK, (err) => {
                     if(err) {
                         console.log('mkdir ' + dir);
-                        fs.mkdirSync(result.title);
+                        fs.mkdirSync(dir);
                     }
                     resolve();
                 });
